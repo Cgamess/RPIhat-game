@@ -13,3 +13,5 @@ add player control
 add movement testing functionality
 
 Update movement for enemys so that it wont goo to fast, also the player movement will have to be ajusted to that also.
+
+Add Better and more proper documentation to the code, and also increase that amount of code comments
