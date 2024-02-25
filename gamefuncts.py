@@ -7,6 +7,7 @@ import re
 import reagons as rg
 import logo
 import imports
+import threading as th
 try:
   import sense_hat as sho
 except:

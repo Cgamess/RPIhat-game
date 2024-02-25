@@ -1,5 +1,6 @@
 import random as r
 import imports
+import threading as th
 try:
   from sense_hat import SenseHat as s
 except:

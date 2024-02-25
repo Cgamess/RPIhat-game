@@ -1,4 +1,11 @@
 import logo, functs, time
+try:
+  from sense_hat import SenseHat as s
+except:
+  from sense_emu import SenseHat as s
+s()
+time.sleep(4)
+import threading as th
 import reagons as rg
 import gamefuncts as gf
 from gamefuncts import tick

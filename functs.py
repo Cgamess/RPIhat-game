@@ -4,6 +4,7 @@ except:
   from sense_emu import SenseHat
 import imports
 import logo
+import threading as th
 class s:
     def setrow(self, pixel_array, row):
         sh = SenseHat()
