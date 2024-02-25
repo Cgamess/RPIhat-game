@@ -8,4 +8,5 @@ i need lots of help with this.
 
 Todo:
 add player control
-add movement testing
+add movement testing functionality
+Update movement for enemys so that it wont goo to fast, also the player movement will have to be ajusted to that also.
