@@ -3,8 +3,10 @@ import imports
 import threading as th
 try:
   from sense_hat import SenseHat as s
+  sh=s()
 except:
   from sense_emu import SenseHat as s
+  sh=s()
 import time, math, numpy, operator, string, re
 global message
 try:
@@ -20,13 +22,13 @@ except:
   from sense_emu import SenseHat as sh
 def logofade(smoothness=0xf,speed=2,sense=True,out=False):
   if sense:
-    try:
-      from sense_hat import SenseHat
-    except:
-      from sense_emu import SenseHat
+    from sense_hat import SenseHat
+    s = SenseHat()
+  else: 
+    from sense_emu import SenseHat
+    s = SenseHat()
   import time
   if sense:
-    s = SenseHat()
     s.low_light = False
   global clamp
   def clamp(value, minimum, maximum):

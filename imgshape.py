@@ -1,6 +1,8 @@
 def process_image(image_path):
     try: from pillow import image as PILImage
-    except: from sense_hat import Image as PILImage
+    except:
+        try: from sense_hat import Image as PILImage # yes i know its horrible but its for trinket.io compatibility (where i started making this on)
+        except: from sense_hat import Image as PILImage # unnessesary fix, just for edge cases
     # Open the image using the alias
     img = PILImage.open(image_path)
 

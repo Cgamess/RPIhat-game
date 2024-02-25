@@ -1,19 +1,19 @@
 try:
   from sense_hat import SenseHat
+  sh=SenseHat()
 except:
   from sense_emu import SenseHat
+  sh=SenseHat()
 import imports
 import logo
 import threading as th
 class s:
     def setrow(self, pixel_array, row):
-        sh = SenseHat()
         if len(pixel_array) == 8:
             for i in range(len(pixel_array)):
                 sh.set_pixel(i, row, pixel_array[i])
 
     def setcolumn(self, pixel_array, column):
-        sh = SenseHat()
         if len(pixel_array) == 8:
             for i in range(len(pixel_array)):
                 sh.set_pixel(column, i, pixel_array[i])

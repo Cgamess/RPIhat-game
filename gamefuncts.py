@@ -10,11 +10,12 @@ import imports
 import threading as th
 try:
   import sense_hat as sho
+  sh=sho.Sensehat()
 except:
   import sense_emu as sho
+  sh=sho.SenseHat()
 tlim=0
 fpsm=120
-sh = sho.SenseHat()
 
 def mtt(current_position, target_position, range_threshold=0):
     try:
