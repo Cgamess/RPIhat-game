@@ -2,9 +2,13 @@ debug = 0
 if 1:
   import imgshape as iss
 from logo import p,P,C,B,W,O,G,R,b
-from sense_hat import SenseHat
+try:
+  from sense_hat import SenseHat
+  sh=SenseHat()
+except:
+  from sense_emu import SenseHat
+  sh=SenseHat()
 map={}
-sh=SenseHat()
 if 0:
   img = ""
   mp = iss.process_image(img)
