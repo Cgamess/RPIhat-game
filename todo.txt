@@ -1,0 +1,11 @@
+Issues:
+This is a big issue with the code:
+it runs way too fast, on the rpi 5 it runs at ~ 2600 fps
+with the sense hat emulator it runs ~ 240 fps
+because of this issue it has a kind of screen tearing so bad that it will only desplay the player with some weird glitches in the pixel
+i need lots of help with this.
+
+
+Todo:
+add player control
+add movement testing
