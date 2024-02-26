@@ -18,12 +18,18 @@ message = False
 timet = time.time()
 try:
   from sense_hat import SenseHat as sh
+  sh=sh()
 except:
   from sense_emu import SenseHat as sh
+  sh=sh()
 def logofade(smoothness=0xf,speed=2,sense=True,out=False):
   if sense:
-    from sense_hat import SenseHat
-    s = SenseHat()
+    try:
+      from sense_hat import SenseHat
+      s = SenseHat()
+    except:
+      from sense_emu import SenseHat
+      s = SenseHat()
   else: 
     from sense_emu import SenseHat
     s = SenseHat()

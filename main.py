@@ -5,13 +5,12 @@ try:
 except:
   from sense_emu import SenseHat as s
   s()
-time.sleep(4)
 import threading as th
 import reagons as rg
 import gamefuncts as gf
 from gamefuncts import tick
 if __name__ == "__main__":
-  if 0: logo.logofade()
+  if 0: logo.logofade() #need to fix the logo function, we need to convert it a to int
   while True:
     daypoint=int((time.time()%86400)//21600)
     start_time = time.time()
