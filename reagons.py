@@ -8,6 +8,9 @@ try:
 except:
   from sense_emu import SenseHat
   sh=SenseHat()
+class Map:
+    cmx, cmy, cmz = 0, 0, 0
+    cworld = 0
 map={}
 if 0:
   img = ""
