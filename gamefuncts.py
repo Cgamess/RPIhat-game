@@ -147,4 +147,5 @@ def tick():
   if 0: print(len(goblins))
   if player.hp >= 0:
     player.render()
+    player.move()
   if tlim: time.sleep(1/(fpsm*3))
