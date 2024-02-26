@@ -77,10 +77,11 @@ class Player(cb.BaseEntityModel):
       else:
         mm = self.movement.get_movement_matrix()
         if mm:
-          super().x=mm[0]+super().x
-          super().y=mm[1]+super().y
+          self.x=mm[0]+self.x
+          self.y=mm[1]+self.y
     def render(self):
-        super().render()
+        if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld]:
+            sh.set_pixel(self.x,self.y,self.color)
 
 class Goblin(cb.BaseEntityModel):
     def __init__(self):
