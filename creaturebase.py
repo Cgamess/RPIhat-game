@@ -1,8 +1,12 @@
-class Map:
-    cmx, cmy, cmz = 0, 0, 0
-    cworld = 0
+import reagons as rg
+try:
+  import sense_hat as sho
+  sh=sho.Sensehat()
+except:
+  import sense_emu as sho
+  sh=sho.SenseHat()
 
-class BaseEntityModel(Map):
+class BaseEntityModel(rg.Map):
     def __init__(self):
         self.hp = 100
         self.dead = False
