@@ -75,8 +75,8 @@ class Player(cb.BaseEntityModel):
         self.x=r.randint(-1,1)+self.x
         self.y=r.randint(-1,1)+self.y
       else:
+        mm = self.movement.get_movement_matrix()
         if mm:
-          mm = self.movement.get_movement_matrix()
           self.x=mm[0]+self.x
           self.y=mm[1]+self.y
     def render(self):
