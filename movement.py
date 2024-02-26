@@ -1,4 +1,9 @@
-
+try:
+  import sense_hat as sho
+  sense=sho.Sensehat()
+except:
+  import sense_emu as sho
+  sense=sho.SenseHat()
 
 # Function to get joystick event
 def get_joystick_event():
