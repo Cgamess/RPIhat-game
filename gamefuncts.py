@@ -15,7 +15,7 @@ try:
 except:
   import sense_emu as sho
   sh=sho.SenseHat()
-tlim=1
+tlim=0
 fpsm=30
 
 def mtt(current_position, target_position, range_threshold=0):
@@ -113,7 +113,7 @@ class Goblin(cb.BaseEntityModel):
             i.move()
 goblins=[]
 player = Player()
-Goblin.spawn(8)
+if 0: Goblin.spawn(8)
 
 def md():
   player.move([0,0])
