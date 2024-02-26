@@ -74,8 +74,8 @@ class Player(cb.BaseEntityModel):
         self.y=r.randint(-1,1)+self.y
       else:
         if way:
-          self.x=+way[0]
-          self.y=+way[1]
+          self.x+=way[0]
+          self.y+=way[1]
     def render(self):
         if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld]:
             sh.set_pixel(self.x,self.y,self.color)
