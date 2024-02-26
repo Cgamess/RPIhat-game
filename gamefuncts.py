@@ -64,20 +64,19 @@ def makealtani(loops,wait,alts,lenl=1):
         b.extend(i)
     return(b)
 
-import movement
 class Player(cb.BaseEntityModel):
     def __init__(self):
         super().__init__()
         self.color = [255, 255, 255]
-    def move(self):
+    def move(self,way=[0,0]):
       if 0:
         self.x=r.randint(-1,1)+self.x
         self.y=r.randint(-1,1)+self.y
       else:
         mm = movement.get_movement_matrix()
         if mm:
-          self.x=+mm[0]
-          self.y=+mm[1]
+          self.x=+way[0]
+          self.y=+way[1]
     def render(self):
         if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld]:
             sh.set_pixel(self.x,self.y,self.color)
@@ -116,6 +115,24 @@ class Goblin(cb.BaseEntityModel):
 goblins=[]
 player = Player()
 Goblin.spawn(8)
+
+def md():
+  player.move([0,0])
+def rd():
+  player.move([1,0])
+def dd():
+  player.move([0,-1])
+def ud():
+  player.move([0,1])
+def ld():
+  player.move([-1,0])
+
+sh.stick.direction_middle = md
+sh.stick.direction_right = rd
+sh.stick.direction_down = dd
+sh.stick.direction_up = ud
+sh.stick.direction_left = ld
+
 def tick():
   if 0: Goblin.spawn(1)
   global oldmap,map,gamma
