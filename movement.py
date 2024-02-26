@@ -13,7 +13,8 @@ def get_joystick_event():
     return None
 
 # Function to get movement matrix based on joystick direction
-def get_movement_matrix(direction):
+def get_movement_matrix():
+    direction=get_joystick_exent
     if direction == 'up':
         return [0, 1]
     elif direction == 'down':
