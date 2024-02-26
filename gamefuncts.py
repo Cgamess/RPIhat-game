@@ -66,12 +66,18 @@ def makealtani(loops,wait,alts,lenl=1):
 
 
 class Player(cb.BaseEntityModel):
+    movement = __import__("movement")
     def __init__(self):
         super().__init__()
         self.color = [255, 255, 255]
     def move(self):
-      self.x=r.randint(-1,1)+self.x
-      self.y=r.randint(-1,1)+self.y
+      if 0:
+        self.x=r.randint(-1,1)+self.x
+        self.y=r.randint(-1,1)+self.y
+      else:
+        mm = movement.get_movement_matrix()
+        self.x=mm[0]+self.x
+        self.y=mm[1]+self.y
     def render(self):
         super().render()
 
