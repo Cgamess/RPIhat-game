@@ -15,23 +15,15 @@ def get_joystick_event():
 # Function to get movement matrix based on joystick direction
 def get_movement_matrix():
     direction=get_joystick_event()
-    if direction == 'up':
+    if direction == 'U':
         return [0, 1]
-    elif direction == 'down':
+    elif direction == 'D':
         return [0, -1]
-    elif direction == 'left':
+    elif direction == 'L':
         return [-1, 0]
-    elif direction == 'right':
+    elif direction == 'R':
         return [1, 0]
-    elif direction == 'middle':
+    elif direction == 'M':
         return [0, 0]
-    elif direction == 'up_left':
-        return [-1, 1]
-    elif direction == 'up_right':
-        return [1, 1]
-    elif direction == 'down_left':
-        return [-1, -1]
-    elif direction == 'down_right':
-        return [1, -1]
     elif direction == 'pressed':
         return None  # Handle button press
