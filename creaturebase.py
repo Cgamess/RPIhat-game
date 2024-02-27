@@ -27,7 +27,7 @@ class BaseEntityModel(rg.Map):
           tmap=[]
           for i in range(64):
             tmap.append([0,0,0])
-        if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld]:
-            sh.set_pixel(self.x,self.y,self.color) and not [self.x, self.y, self.z, self.world, self.mx, self.my, self.mz] == [self.lx, self.ly, self.lz, self.lworld, self.lmx, self.lmy, self.lmz]:
+        if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld] and not [self.x, self.y, self.z, self.world, self.mx, self.my, self.mz] == [self.lx, self.ly, self.lz, self.lworld, self.lmx, self.lmy, self.lmz]:
+            sh.set_pixel(self.x,self.y,self.color)
             if not change:
               sh.set_pixel(self.lx,self.ly,tmap[self.lx+(self.ly*8)])
