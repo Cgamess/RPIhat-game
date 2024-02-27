@@ -115,6 +115,7 @@ goblins=[]
 player = Player()
 if 0: Goblin.spawn(8)
 
+"""
 def md():
   player.move([0,0])
 def rd():
@@ -131,6 +132,7 @@ sh.stick.direction_right = rd
 sh.stick.direction_down = dd
 sh.stick.direction_up = ud
 sh.stick.direction_left = ld
+"""
 
 def tick():
   if 0: Goblin.spawn(1)
