@@ -69,6 +69,7 @@ class Player(cb.BaseEntityModel):
         super().__init__()
         self.color = [255, 255, 255]
     def move(self,way=[0,0]):
+      self.lx, self.ly=self.x, self.y
       if 0:
         self.x=r.randint(-1,1)+self.x
         self.y=r.randint(-1,1)+self.y
@@ -77,8 +78,8 @@ class Player(cb.BaseEntityModel):
           self.x+=way[0]
           self.y+=way[1]
     def render(self):
-        if [self.mx, self.my, self.mz, self.world] == [super().cmx, super().cmy, super().cmz, super().cworld]:
-            sh.set_pixel(self.x,self.y,self.color)
+        global tmap,change
+        super().render()
 
 class Goblin(cb.BaseEntityModel):
     def __init__(self):
@@ -91,6 +92,7 @@ class Goblin(cb.BaseEntityModel):
     def move(self):
       for i in range(r.randint(0,int(math.ceil(len(goblins)/4)))):
           if 3 == r.randint(3,4):
+            self.lx, self.ly=self.x, self.y
             self.x, self.y = mtt([player.x, player.y], [self.x, self.y], 1)
     def spawn(amount=1):
       for i in range(amount):
@@ -103,6 +105,7 @@ class Goblin(cb.BaseEntityModel):
         for i in range(amount-len(goblins)):
           goblins.append(Goblin())
     def RenderAll():
+      global tmap,change
       for i in goblins:
         if i.hp > 0:
           i.render()
@@ -133,10 +136,10 @@ sh.stick.direction_down = dd
 sh.stick.direction_up = ud
 sh.stick.direction_left = ld
 """
-
+lastmap=(0,0,0,0)
 def tick():
   if 0: Goblin.spawn(1)
-  global oldmap,map,gamma
+  global lastmap,oldmap,map,gamma,map,tmap,change
   if 0: sh.clear()
   map = (player.world,f.utils.clamp(player.tx,rg.xmap[0],rg.xmap[1]),f.utils.clamp(player.ty,rg.ymap[0],rg.ymap[1]),0)
 
@@ -145,7 +148,10 @@ def tick():
     for i in range(len(tmap)):
         for j in range(len(tmap[i])):
           tmap[i][j]=int(tmap[i][j])
-    sh.set_pixels(tmap)
+    change=map!=lastmap
+    if change:
+      sh.set_pixels(tmap)
+      lastmap=map
     oldmap=map
     if map in [(0,0,0,0),(0,0,1,0)]:
       s.gamma = [31] * 32
@@ -158,7 +164,10 @@ def tick():
     for i in range(len(tmap)):
         for j in range(len(tmap[i])):
           tmap[i][j]=int(tmap[i][j])
-    sh.set_pixels()
+    change=map!=lastmap
+    if change:
+      sh.set_pixels(tmap)
+      lastmap=oldmap
   if tlim: time.sleep(1/(fpsm*3))
   Goblin.RenderAll()
   Goblin.MoveAll()

@@ -11,6 +11,8 @@ except:
 class Map:
     cmx, cmy, cmz = 0, 0, 0
     cworld = 0
+    lcmx, lcmy, lcmz = 0, 0, 0
+    lcworld = 0
 map={}
 if 0:
   img = ""
