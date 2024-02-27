@@ -15,6 +15,7 @@ try:
 except:
   import sense_emu as sho
   sh=sho.SenseHat()
+global tmap,change
 tlim=0
 fpsm=30
 
@@ -77,9 +78,8 @@ class Player(cb.BaseEntityModel):
         if way:
           self.x+=way[0]
           self.y+=way[1]
-    def render(self):
-        global tmap,change
-        super().render()
+    def render(self,tmap,change):
+        super().render(tmap,change)
 
 class Goblin(cb.BaseEntityModel):
     def __init__(self):
@@ -88,7 +88,7 @@ class Goblin(cb.BaseEntityModel):
         self.x = r.randint(0,7)
         self.y = r.randint(0,7)
         def render(self):
-            super().render()
+            super().render(tmap,change)
     def move(self):
       for i in range(r.randint(0,int(math.ceil(len(goblins)/4)))):
           if 3 == r.randint(3,4):
@@ -104,11 +104,10 @@ class Goblin(cb.BaseEntityModel):
       else:
         for i in range(amount-len(goblins)):
           goblins.append(Goblin())
-    def RenderAll():
-      global tmap,change
+    def RenderAll(tmap,change):
       for i in goblins:
         if i.hp > 0:
-          i.render()
+          i.render(tmap,change)
     def MoveAll():
       for i in goblins:
         if i.hp > 0:
@@ -169,11 +168,11 @@ def tick():
       sh.set_pixels(tmap)
       lastmap=oldmap
   if tlim: time.sleep(1/(fpsm*3))
-  Goblin.RenderAll()
+  Goblin.RenderAll(tmap,change)
   Goblin.MoveAll()
   if tlim: time.sleep(1/(fpsm*3))
   if 0: print(len(goblins))
   if player.hp >= 0:
-    player.render()
+    player.render(tmap,change)
     player.move()
   if tlim: time.sleep(1/(fpsm*3))

@@ -5,7 +5,7 @@ try:
 except:
   import sense_emu as sho
   sh=sho.SenseHat()
-
+global tmap,change
 class BaseEntityModel(rg.Map):
     def __init__(self):
         self.hp = 100
@@ -21,8 +21,8 @@ class BaseEntityModel(rg.Map):
         self.lmx, self.lmy, self.lmz = 0, 0, 0
         
 
-    def render(self):
-        global tmap,change
+    def render(self,tmap,change):
+        
         if not tmap:
           tmap=[]
           for i in range(64):
