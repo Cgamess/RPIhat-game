@@ -17,7 +17,7 @@ except:
   sh=sho.SenseHat()
 global tmap,change
 tlim=1
-fpsm=30
+fpsm=10
 
 def mtt(current_position, target_position, range_threshold=0):
     try:
