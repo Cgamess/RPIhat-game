@@ -136,6 +136,8 @@ sh.stick.direction_up = ud
 sh.stick.direction_left = ld
 """
 lastmap=(0,0,0,0)
+sh.clear([0,255,64])
+lastmap=[]
 def tick():
   if 0: Goblin.spawn(1000)
   global lastmap,oldmap,map,gamma,map,tmap,change
