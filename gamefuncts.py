@@ -16,7 +16,7 @@ except:
   import sense_emu as sho
   sh=sho.SenseHat()
 global tmap,change
-tlim=0
+tlim=1
 fpsm=30
 
 def mtt(current_position, target_position, range_threshold=0):
