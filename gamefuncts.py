@@ -115,7 +115,7 @@ class Goblin(cb.BaseEntityModel):
             i.move()
 goblins=[]
 player = Player()
-if 0: Goblin.spawn(8)
+if 1: Goblin.spawn(8)
 
 """
 def md():
@@ -137,7 +137,7 @@ sh.stick.direction_left = ld
 """
 lastmap=(0,0,0,0)
 def tick():
-  if 1: Goblin.spawn(1)
+  if 0: Goblin.spawn(1000)
   global lastmap,oldmap,map,gamma,map,tmap,change
   if 0: sh.clear()
   map = (player.world,f.utils.clamp(player.tx,rg.xmap[0],rg.xmap[1]),f.utils.clamp(player.ty,rg.ymap[0],rg.ymap[1]),0)
